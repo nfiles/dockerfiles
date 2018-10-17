@@ -21,7 +21,7 @@ build_and_push() {
 	fi
 
 	date="$(date +%Y%m%d)"
-	image_name=$REGISTRY_URL/$REGISTRY_USERNAME/$dir
+	image_name=$REGISTRY_USERNAME/$dir
 
 	echo image_name: $image_name
 
@@ -31,7 +31,7 @@ build_and_push() {
 		-t $image_name:$date \
 		-f $dir/Dockerfile \
 		$dir
-	docker push $REGISTRY_USERNAME/$dir
+	docker push $image_name
 }
 export -f build_and_push
 
