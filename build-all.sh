@@ -30,9 +30,8 @@ build_and_push() {
 		-t $image_name:latest \
 		-t $image_name:$date \
 		-f $dir/Dockerfile \
-		$dir \
-		|| exit $?
-	docker push $image_name || exit $?
+		$dir
+	docker push $REGISTRY_USERNAME/$dir
 }
 export -f build_and_push
 
