@@ -1,3 +1,7 @@
+addons:
+  apt:
+    packages:
+      - parallel
 services:
   - docker
 script:
