@@ -10,8 +10,7 @@ fi
 echo "$REGISTRY_PASSWORD" | docker login \
 	--username "$REGISTRY_USERNAME" \
 	--password-stdin \
-	"$REGISTRY_URL" \
-	|| exit $?
+	"$REGISTRY_URL"
 
 build_and_push() {
 	dir=${1%/}
@@ -21,7 +20,7 @@ build_and_push() {
 	fi
 
 	date="$(date +%Y%m%d)"
-	image_name=$REGISTRY_USERNAME/$dir
+	image_name=$REGISTRY_URL/$REGISTRY_USERNAME/$dir
 
 	echo image_name: $image_name
 
