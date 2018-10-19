@@ -1,0 +1,9 @@
+sudo: required
+addons:
+  apt:
+    packages:
+      - parallel
+services:
+  - docker
+script:
+  - make build
